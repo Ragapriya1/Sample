@@ -1,0 +1,282 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\DOLLY>git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+
+C:\Users\DOLLY>D:
+
+D:\>cd Git_local_sample
+
+D:\Git_local_sample>git init
+Initialized empty Git repository in D:/Git_local_sample/.git/
+
+D:\Git_local_sample>git remote add sample https://github.com/Ragapriya1/Sample.g
+it
+
+D:\Git_local_sample>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Test_git.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\Git_local_sample>git add .
+
+D:\Git_local_sample>git commit -m "Added one file"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'DOLLY@DOLLY-PC.(none)')
+
+D:\Git_local_sample>git config --global user.email meetraga@gmail.com
+
+D:\Git_local_sample>git config --global user.name Ragapriya1
+
+D:\Git_local_sample>git commit -m "Added one file"
+[master (root-commit) cbd0f7d] Added one file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Test_git.txt
+
+D:\Git_local_sample>git log
+commit cbd0f7d36d42e2e0f86e315687a8dd9c938cfe77 (HEAD -> master)
+Author: Ragapriya1 <meetraga@gmail.com>
+Date:   Thu May 10 10:22:52 2018 +0530
+
+    Added one file
+
+D:\Git_local_sample>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Sample_file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\Git_local_sample>git add Sample_file2.txt
+
+D:\Git_local_sample>git commit -m "Added second file"
+[master 4c4f7bd] Added second file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 Sample_file2.txt
+
+D:\Git_local_sample>git log
+commit 4c4f7bd898fa9ec7e8e9d5ce5286b595a9838e15 (HEAD -> master)
+Author: Ragapriya1 <meetraga@gmail.com>
+Date:   Thu May 10 10:24:30 2018 +0530
+
+    Added second file
+
+commit cbd0f7d36d42e2e0f86e315687a8dd9c938cfe77
+Author: Ragapriya1 <meetraga@gmail.com>
+Date:   Thu May 10 10:22:52 2018 +0530
+
+    Added one file
+
+D:\Git_local_sample>git reset cbd
+fatal: ambiguous argument 'cbd': unknown revision or path not in the working tre
+e.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+D:\Git_local_sample>git reset --hard cbd
+fatal: ambiguous argument 'cbd': unknown revision or path not in the working tre
+e.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+D:\Git_local_sample>git reset -p
+No changes.
+
+D:\Git_local_sample>git reset
+
+D:\Git_local_sample>git log
+commit 4c4f7bd898fa9ec7e8e9d5ce5286b595a9838e15 (HEAD -> master)
+Author: Ragapriya1 <meetraga@gmail.com>
+Date:   Thu May 10 10:24:30 2018 +0530
+
+    Added second file
+
+commit cbd0f7d36d42e2e0f86e315687a8dd9c938cfe77
+Author: Ragapriya1 <meetraga@gmail.com>
+Date:   Thu May 10 10:22:52 2018 +0530
+
+    Added one file
+
+D:\Git_local_sample>git remote -v
+sample  https://github.com/Ragapriya1/Sample.git (fetch)
+sample  https://github.com/Ragapriya1/Sample.git (push)
+
+D:\Git_local_sample>git push sample master
+Username for 'https://github.com': Ragapriya1
+Password for 'https://Ragapriya1@github.com':
+Counting objects: 6, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (6/6), 524 bytes | 174.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To https://github.com/Ragapriya1/Sample.git
+ * [new branch]      master -> master
+
+D:\Git_local_sample>git branch
+* master
+
+D:\Git_local_sample>git branch -b sample_branch
+error: unknown switch `b'
+usage: git branch [<options>] [-r | -a] [--merged | --no-merged]
+   or: git branch [<options>] [-l] [-f] <branch-name> [<start-point>]
+   or: git branch [<options>] [-r] (-d | -D) <branch-name>...
+   or: git branch [<options>] (-m | -M) [<old-branch>] <new-branch>
+   or: git branch [<options>] (-c | -C) [<old-branch>] <new-branch>
+   or: git branch [<options>] [-r | -a] [--points-at]
+   or: git branch [<options>] [-r | -a] [--format]
+
+Generic options
+    -v, --verbose         show hash and subject, give twice for upstream branch
+    -q, --quiet           suppress informational messages
+    -t, --track           set up tracking mode (see git-pull(1))
+    -u, --set-upstream-to <upstream>
+                          change the upstream info
+    --unset-upstream      Unset the upstream info
+    --color[=<when>]      use colored output
+    -r, --remotes         act on remote-tracking branches
+    --contains <commit>   print only branches that contain the commit
+    --no-contains <commit>
+                          print only branches that don't contain the commit
+    --abbrev[=<n>]        use <n> digits to display SHA-1s
+
+Specific git-branch actions:
+    -a, --all             list both remote-tracking and local branches
+    -d, --delete          delete fully merged branch
+    -D                    delete branch (even if not merged)
+    -m, --move            move/rename a branch and its reflog
+    -M                    move/rename a branch, even if target exists
+    -c, --copy            copy a branch and its reflog
+    -C                    copy a branch, even if target exists
+    --list                list branch names
+    -l, --create-reflog   create the branch's reflog
+    --edit-description    edit the description for the branch
+    -f, --force           force creation, move/rename, deletion
+    --merged <commit>     print only branches that are merged
+    --no-merged <commit>  print only branches that are not merged
+    --column[=<style>]    list branches in columns
+    --sort <key>          field name to sort on
+    --points-at <object>  print only branches of the object
+    -i, --ignore-case     sorting and filtering are case insensitive
+    --format <format>     format to use for the output
+
+
+D:\Git_local_sample>git branch  sample_branch
+
+D:\Git_local_sample>git branch
+* master
+  sample_branch
+
+D:\Git_local_sample>git checkout sample_branch
+Switched to branch 'sample_branch'
+
+D:\Git_local_sample>git log
+commit 4c4f7bd898fa9ec7e8e9d5ce5286b595a9838e15 (HEAD -> sample_branch, sample/m
+aster, master)
+Author: Ragapriya1 <meetraga@gmail.com>
+Date:   Thu May 10 10:24:30 2018 +0530
+
+    Added second file
+
+commit cbd0f7d36d42e2e0f86e315687a8dd9c938cfe77
+Author: Ragapriya1 <meetraga@gmail.com>
+Date:   Thu May 10 10:22:52 2018 +0530
+
+    Added one file
+
+D:\Git_local_sample>git push sample sample_branch
+Username for 'https://github.com': meetraga@gmail.com
+Password for 'https://meetraga@gmail.com@github.com':
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/Ragapriya1/Sample.git
+ * [new branch]      sample_branch -> sample_branch
+
+D:\Git_local_sample>git status
+On branch sample_branch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Branch_test.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\Git_local_sample>git add .
+
+D:\Git_local_sample>git commit -m "Test branch strategy"
+[sample_branch 309074f] Test branch strategy
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Branch_test.txt
+
+D:\Git_local_sample>git push sample sample_branch
+Username for 'https://github.com': meetraga@gmail.com
+Password for 'https://meetraga@gmail.com@github.com':
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 345 bytes | 115.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/Ragapriya1/Sample.git
+   4c4f7bd..309074f  sample_branch -> sample_branch
+
+D:\Git_local_sample>
